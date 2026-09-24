@@ -1,6 +1,6 @@
 ---
 name: wechat-mp-publishing
-description: Automate the WeChat Official Account pipeline: pull backend stats for review, render article images locally, create rich-text drafts in bulk (cover, original-content declaration and creation-source set automatically), then run a cadence gate and readiness check before publishing. Use when asked to analyse account data, write or illustrate a post, upload drafts to the backend, or get ready to publish. It never presses Publish — that stays with the user. 微信公众号内容流水线：拉后台数据复盘、本地渲染配图、批量建图文草稿、发布前做节奏与齐备性检查；发表按钮始终由用户自己点。
+description: Automate the WeChat Official Account pipeline — pull backend stats for review, render article images locally, create rich-text drafts in bulk (cover, original-content declaration and creation-source set automatically), then run a cadence gate and readiness check before publishing. Use when asked to analyse account data, write or illustrate a post, upload drafts to the backend, or get ready to publish. It never presses Publish — that stays with the user. 微信公众号内容流水线：拉后台数据复盘、本地渲染配图、批量建图文草稿、发布前做节奏与齐备性检查；发表按钮始终由用户自己点。
 ---
 
 # 微信公众号内容生产与投放

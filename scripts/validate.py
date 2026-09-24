@@ -2,7 +2,8 @@
 """Check every skill before publishing. / 发布前检查所有技能。
 
 Checks:
-  1. skills/<dir>/SKILL.md exists, frontmatter has `name` and `description`
+  1. skills/<dir>/SKILL.md exists, frontmatter has `name` and `description`,
+     and no unquoted frontmatter value contains ": " (breaks YAML parsers)
   2. `name` equals the folder name, lowercase-hyphen, <= 64 chars
   3. description <= 1024 chars
   4. each skill has a README.md
@@ -23,15 +24,27 @@ TEXT_SUFFIXES = {".md", ".py", ".sh", ".js", ".mjs", ".cjs", ".ts", ".json", ".y
 
 
 def frontmatter(text):
+    """Parse frontmatter, and report values real YAML parsers would reject.
+
+    An unquoted scalar containing ": " makes YAML read a nested mapping and the
+    whole block fails to load — `npx skills` then skips the skill silently.
+    A naive partition() parser does not notice, so check for it explicitly.
+    未加引号的值里出现「冒号+空格」会被 YAML 当成嵌套映射，整块解析失败，
+    `npx skills` 会直接跳过该技能。朴素解析看不出来，所以单独检查。
+    """
     m = re.match(r"^---\n(.*?)\n---\n", text, re.S)
     if not m:
-        return None
-    fields = {}
+        return None, []
+    fields, bad = {}, []
     for line in m.group(1).splitlines():
         k, sep, v = line.partition(":")
         if sep and not line.startswith((" ", "\t")):
-            fields[k.strip()] = v.strip()
-    return fields
+            key, val = k.strip(), v.strip()
+            fields[key] = val
+            quoted = len(val) >= 2 and val[0] == val[-1] and val[0] in "\"'"
+            if not quoted and ": " in val:
+                bad.append(key)
+    return fields, bad
 
 
 def main():
@@ -47,10 +60,13 @@ def main():
         if not skill_md.exists():
             errors.append(f"{d.name}: missing SKILL.md")
             continue
-        fm = frontmatter(skill_md.read_text(encoding="utf-8"))
+        fm, bad_yaml = frontmatter(skill_md.read_text(encoding="utf-8"))
         if fm is None:
             errors.append(f"{d.name}: SKILL.md has no YAML frontmatter")
             continue
+        for key in bad_yaml:
+            errors.append(f"{d.name}: frontmatter '{key}' contains \": \" unquoted — "
+                          f"YAML will fail to parse and installers will skip this skill")
         name, desc = fm.get("name", ""), fm.get("description", "")
         if not name or not desc:
             errors.append(f"{d.name}: frontmatter needs both name and description")

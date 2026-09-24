@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 .DS_Store
 .privacy-denylist
+# cn-bill-parser outputs — never commit / 账单产物，禁止入库
+bill-report*.html
+pairs-confirmed*.csv

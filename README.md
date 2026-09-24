@@ -13,6 +13,7 @@ One folder, one `SKILL.md` — works in **Claude Code, Codex CLI, Cursor, Gemini
 |---|---|---|---|
 | [**adaptive-eta**](skills/adaptive-eta) | Gives your agent a sense of time: an honest ETA before long tasks, updates when it slips, a check-in before running far over — and it learns from past misses. | 让 Agent 有时间感：长任务先报预估，超时如实更新，严重超时先问你，并从历史偏差中自我校准。 | 0.3.0 |
 | [**wechat-mp-publishing**](skills/wechat-mp-publishing) | WeChat Official Account pipeline — review stats, render images, create drafts in bulk, plus a cadence gate that stops you over-posting. Never presses Publish. | 公众号内容流水线：复盘数据、渲染配图、批量建草稿，外加一道拦住过度发文的节奏闸门。绝不替你点发表。 | 0.1.0 |
+| [**cn-bill-parser**](skills/cn-bill-parser) | Parses WeChat Pay, Alipay, JD and China Merchants Bank exports, proves each file against the platform's own totals, flags refunds, round trips and cross-platform duplicates, and renders a private local HTML report. | 解析微信、支付宝、京东、招行账单，先用平台自带合计逐文件对账，找出退款、原路返回与跨平台重复，并生成只在本机打开的 HTML 报表。 | 0.1.0 |
 
 ## Quick start · 快速开始
 

@@ -30,14 +30,23 @@ AI 在两次工具调用之间感知不到时间流逝，所以长任务时常�
 >
 > **AI:** Done. … *Estimated 6m · actual 9m40s · 1 revision*
 
+> **你：** 重构认证模块，顺便把测试更新了。
+>
+> **AI：** 预计 6 分钟：读 9 个文件（约 1 分钟）、重构（约 3 分钟）、修测试并运行（约 2 分钟）。
+>
+> **AI：** 比预期慢——有两个测试依赖旧的 token 格式，还需要约 4 分钟。
+>
+> **AI：** 完成。…… *预估 6 分钟 · 实际 9 分 40 秒 · 修正 1 次*
+
 ## Installation / 安装
 
 ```bash
-clawhub install Yanghe1941/adaptive-eta
+npx skills add Yanghe1941/skills --skill adaptive-eta     # Claude Code, Codex, Cursor, Gemini CLI …
+openclaw skills install @yanghe1941/adaptive-eta         # OpenClaw, via ClawHub
 ```
 
-Requires Python 3.8+ (stdlib only). Timer state and history live in `~/.adaptive-eta/` (override with `ADAPTIVE_ETA_HOME`).
-需要 Python 3.8+（仅标准库）。计时状态和历史存放在 `~/.adaptive-eta/`。
+Requires Python 3.8+ (standard library only). Timer state and history live in `~/.adaptive-eta/` — override with `ADAPTIVE_ETA_HOME`.
+需要 Python 3.8+（仅用标准库）。计时状态与历史记录存放在 `~/.adaptive-eta/`，可用 `ADAPTIVE_ETA_HOME` 改到别处。
 
 ## Changelog / 更新记录
 

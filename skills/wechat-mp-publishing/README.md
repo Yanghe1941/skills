@@ -40,8 +40,8 @@ Full post-mortem: [`references/content-rules.md`](references/content-rules.md)
 
 ## Requirements / 依赖
 
-Node.js and **ego-browser** (Chromium that reuses your logged-in session). No other dependencies — the image templates are plain HTML + CSS.
-Node.js 和 **ego-browser**（复用你已登录会话的 Chromium）。无其他依赖，配图模板是纯 HTML + CSS。
+Node.js and [**ego lite**](https://github.com/citrolabs/ego-lite) — a Chromium for AI agents that reuses your logged-in session (`npx skills add citrolabs/ego-lite`). No other dependencies: the image templates are plain HTML + CSS.
+Node.js 和 [**ego lite**](https://github.com/citrolabs/ego-lite)——给 AI agent 用的 Chromium，复用你已登录的会话（`npx skills add citrolabs/ego-lite`）。无其他依赖，配图模板是纯 HTML + CSS。
 
 ## Configure / 配置
 

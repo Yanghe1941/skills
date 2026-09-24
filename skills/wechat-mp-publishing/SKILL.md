@@ -8,7 +8,7 @@ description: Automate the WeChat Official Account pipeline: pull backend stats f
 覆盖四件事：**拉数据复盘 → 写稿配图 → 建草稿 → 发布前检查**。四步可独立使用。
 最后一步只做检查和把关，**发表按钮始终由用户自己点**。
 
-浏览器自动化用 **ego-browser**（Chromium，复用用户已登录的会话）。
+浏览器自动化用 [ego-browser](https://github.com/citrolabs/ego-lite)（Chromium，复用用户已登录的会话）。
 所有后台请求都要**在页面内 `fetch`**——Node 侧没有 cookie。
 
 ## ⚠️ 先读这一条：批量生产会把账号做死

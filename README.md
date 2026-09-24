@@ -11,6 +11,7 @@ These skills come out of daily use: each one fixes a specific way agents fail at
 | Skill | What it does / 功能 | Version | ClawHub |
 |---|---|---|---|
 | [adaptive-eta](skills/adaptive-eta) | Honest time estimates for long tasks, with overrun alerts and self-calibration / 长任务时间预估、超时提醒与自我校准 | 0.3.0 | [adaptive-eta](https://clawhub.ai/yanghe1941/skills/adaptive-eta) |
+| [wechat-mp-publishing](skills/wechat-mp-publishing) | WeChat Official Account pipeline: review, image rendering, bulk drafts, pre-publish cadence gate / 公众号流水线：复盘、配图、批量建草稿、发布前节奏闸门 | 0.1.0 | — |
 
 ## Install / 安装
 

@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SKILLS = ROOT / "skills"
 DENYLIST = ROOT / ".privacy-denylist"
 NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
-TEXT_SUFFIXES = {".md", ".py", ".sh", ".js", ".ts", ".json", ".yaml", ".yml", ".txt", ".lua"}
+TEXT_SUFFIXES = {".md", ".py", ".sh", ".js", ".mjs", ".cjs", ".ts", ".json", ".yaml", ".yml", ".txt", ".lua"}
 
 
 def frontmatter(text):

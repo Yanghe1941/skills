@@ -15,11 +15,25 @@ These skills come out of daily use: each one fixes a specific way agents fail at
 
 ## Install / 安装
 
+**One skill, no clone / 单个技能，无需克隆** — via [`npx skills`](https://github.com/vercel-labs/skills):
+
+```bash
+npx skills add Yanghe1941/skills --list                            # see what's here / 看有哪些
+npx skills add Yanghe1941/skills --skill adaptive-eta              # install one / 装一个
+npx skills add Yanghe1941/skills --skill wechat-mp-publishing -g   # -g = user-wide / 全局
+```
+
+Add `-a claude-code` (or `-a codex`, `-a cursor`, …) to target a specific agent, and `-y` to skip prompts.
+加 `-a claude-code`（或 `codex` / `cursor` …）指定工具，加 `-y` 跳过确认。
+
+**From a clone / 克隆后安装** — supports `--link` for development:
+
 ```bash
 git clone https://github.com/Yanghe1941/skills.git && cd skills
 ./scripts/install.sh adaptive-eta                  # Claude Code (default)
 ./scripts/install.sh adaptive-eta --tool codex     # or cursor / gemini / agents
 ./scripts/install.sh --all --tool cursor --project # all skills, into the current project
+./scripts/install.sh adaptive-eta --link           # symlink, edits apply live / 软链接，改了即生效
 ```
 
 Via ClawHub (OpenClaw): `clawhub install adaptive-eta`
